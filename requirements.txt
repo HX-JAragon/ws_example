@@ -8,4 +8,5 @@ streamlit
 pandas_datareader 
 plotly
 sklearn
+PIL
 

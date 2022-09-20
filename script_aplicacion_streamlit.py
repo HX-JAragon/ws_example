@@ -6,6 +6,7 @@ import numpy as np
 import yfinance as yf
 import matplotlib.pyplot as plt
 import streamlit as st
+from PIL import Image
 from pandas_datareader import data, wb
 import yfinance
 import plotly.graph_objects as go
@@ -21,6 +22,9 @@ textColor="#262730"
 font="sans serif"
 
 st.set_page_config(page_title = 'Gráficos',layout = 'wide')
+
+image = Image.open('investment-banner.jpg')
+st.image(image)
 
 st.markdown("<h1 style='text-align: center; color:black;'> Informe de inversiones </h1>",unsafe_allow_html=True)
 st.markdown("<br></br>",unsafe_allow_html=True)
