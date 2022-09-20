@@ -39,14 +39,14 @@ df['Date'] = pd.to_datetime(df.Date)
 sp500 = data.DataReader('^GSPC', data_source='yahoo',start='2000-01-01', end='2021-12-31')['Adj Close']
 
 
-lista_empresas=df.Symbol.values
+lista_empresas=df.Symbol.unique()
 
 
 with st.container():
    
     with st.sidebar:
         selection = st.selectbox('Seleccione empresa:', lista_empresas)
-        inicio = st.date_input( "Ingrese inicio: ",value = pd.to_datetime('2000-01-31', format='%Y-%m-%d'),min_value = pd.to_datetime('2000-01-31', format='%Y-%m-%d'),max_value= pd.to_datetime('2021-12-31', format='%Y-%m-%d'))
+        inicio = st.date_input( "Ingrese inicio: ",value = pd.to_datetime('2021-12-01', format='%Y-%m-%d'),min_value = pd.to_datetime('2000-01-31', format='%Y-%m-%d'),max_value= pd.to_datetime('2021-12-31', format='%Y-%m-%d'))
         fin = st.date_input( "Ingrese fin: ",value = pd.to_datetime('2021-12-31', format='%Y-%m-%d'), min_value = pd.to_datetime('2000-01-31', format='%Y-%m-%d'),max_value= pd.to_datetime('2021-12-31', format='%Y-%m-%d'))
         inicio = inicio.strftime("%Y-%m-%d")
         fin = fin.strftime("%Y-%m-%d")
@@ -286,7 +286,7 @@ with fig1:
         fig.add_trace(go.Scatter(x= x, y = DF.loc[(i,)].rend_norm, mode='lines',name=f'Año {i}'),row=1, col=1)
     fig.update_layout(showlegend=False)
     fig.update_layout(title={
-                'text': 'Tendencia anual (perído 2000-2021)',
+                'text': 'Tendencia anual (período 2000-2021)',
                 'y':0.9,
                 'x':0.5,
                 'font_size':25,
@@ -324,7 +324,7 @@ with fig1:
                 fig.add_trace(go.Scatter(x= x, y = DF.loc[(year,week,)].rend_norm, mode='lines',name=f'Semana {week}, Año{year}'),row=1, col=1)
         fig.update_layout(showlegend=False)
         fig.update_layout(title={
-                    'text': 'Tendencia semanal (perído 2000-2021)',
+                    'text': 'Tendencia semanal (período 2000-2021)',
                     'y':0.9,
                     'x':0.5,
                     'font_size':25,
