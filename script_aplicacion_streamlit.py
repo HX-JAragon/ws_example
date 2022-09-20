@@ -215,8 +215,8 @@ with st.container():
     prets = np.array(prets)
     pvols = np.array(pvols)
     
-    rend_requerido = st.slider(label='Rendimiento', min_value=resultados.loc[0,'Rendimiento'], max_value=resultados.Rendimiento.values[-1],  step=0.01) 
-    print('Nivel de riesgo:', resultados.loc[resultados.Rendimiento==rend_requerido,'Desvío'])
+    #rend_requerido = st.slider(label='Rendimiento', min_value=resultados.loc[0,'Rendimiento'], max_value=resultados.Rendimiento.values[-1],  step=0.01) 
+    #print('Nivel de riesgo:', resultados.loc[resultados.Rendimiento==rend_requerido,'Desvío'])
     fig = st.columns(1)
       
     fig,ax=plt.subplots()
@@ -226,7 +226,7 @@ with st.container():
     ax.plot(desvio_op,rendimiento_op,'b.', markersize=15.0)
     ax.plot(resultados.loc[0,'Desvío'],resultados.loc[0,'Rendimiento'],'r.', markersize=15.0)
     ax.plot(resultados.Desvío[-1:],resultados.Rendimiento[-1:],'r.', markersize=15.0)
-    ax.plot(resultados.loc[resultados.Rendimiento==rend_requerido,'Rendimiento'],resultados.loc[resultados.Rendimiento==rend_requerido,'Desvío'],'r*', markersize=15.0)
+    #ax.plot(resultados.loc[resultados.Rendimiento==rend_requerido,'Rendimiento'],resultados.loc[resultados.Rendimiento==rend_requerido,'Desvío'],'r*', markersize=15.0)
 
     ax.scatter(resultados['Desvío'],resultados['Rendimiento'],c=resultados['Rendimiento']/ resultados['Desvío'], marker='o')
     ax.set_ylim(0.10,1)
