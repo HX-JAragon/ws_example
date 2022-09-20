@@ -1,12 +1,10 @@
 numpy==1.23.0
 pandas==1.4.3
+Pillow==9.2.0
+plotly==5.10.0
+streamlit==1.12.2
+scikit-learn==1.1.1
 yfinance
 matplotlib
-yfinance
-matplotlib
-streamlit 
 pandas_datareader 
-plotly
-sklearn
-PIL
 
